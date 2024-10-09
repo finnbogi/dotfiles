@@ -1,0 +1,114 @@
+//@theme "/usr/share/rofi/themes/Arc-Dark.rasi"
+//@theme "/usr/share/rofi/themes/solarized.rasi"
+
+
+configuration {
+  //display-drun: "Applications:";
+  display-drun: "";
+  display-window: "Windows:";
+  drun-display-format: "{name}";
+  //font: "JetBrainsMono Nerd Font Medium 10";
+  font: "NotoSans Nerd Font 16";
+  modi: "window,run,drun,calc";
+  //modi: "window,run,drun,emoji,calc";
+}
+
+@theme "/dev/null"
+
+* {
+  bg: #1e1e2e66;
+  bg-alt: #585b7066;
+  bg-selected: #31324466;
+
+  fg: #cdd6f4;
+  fg-alt: #7f849c;
+
+  border: 0;
+  margin: 0;
+  padding: 0;
+  spacing: 0;
+}
+
+window {
+  location: north west;
+  width: 25%;
+  background-color: @bg;
+}
+
+element {
+  padding: 8 12;
+  //background-color: transparent;
+  background-color: @bg;
+  text-color: @fg-alt;
+}
+
+element-icon, element-text, scrollbar {
+  cursor: pointer;
+}
+
+element selected {
+  text-color: @fg;
+  background-color: @bg-selected;
+}
+
+element-text {
+  //background-color: transparent;
+  background-color: @bg;
+  text-color: inherit;
+  vertical-align: 0.5;
+}
+
+element-icon {
+  size: 30;
+  padding: 0 10 0 0;
+  //background-color: transparent;
+  background-color: @bg;
+}
+
+entry {
+  padding: 12;
+  background-color: @bg-alt;
+  text-color: @fg;
+}
+
+inputbar {
+  children: [icon-search, prompt, entry];
+  background-color: @bg;
+}
+
+icon-search, entry, element-icon, element-text {
+  vertical-align: 0.5;
+}
+
+icon-search {
+  expand   : false;
+  filename : "search-symbolic";
+  size     : 14px;
+}
+
+listview {
+  background-color: @bg;
+  columns: 1;
+  lines: 30;
+}
+
+mainbox {
+  children: [inputbar, listview];
+  background-color: @bg;
+}
+
+prompt {
+  enabled: true;
+  padding: 12 0 0 12;
+  background-color: @bg-alt;
+  text-color: @fg;
+}
+
+icon-search {
+  expand:   false;
+  filename: "search";
+  vertical-align: 0.5;
+}
+
+/* vim: ft=sass
+

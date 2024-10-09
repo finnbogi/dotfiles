@@ -22,7 +22,8 @@ set $mod Mod4
 #font NotoSans Nerd Font 14
 #font pango:Source Code Pro Semibold 10
 #font pango:Fira Code 12, FontAwesome 12
-font Fira Code 12, FontAwesome 12
+font pango:Fira Code 8, FontAwesome 14
+#font pango:monospace 8
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
@@ -46,6 +47,12 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
+# Use playerctl to control Spotify
+bindsym XF86AudioPlay exec --no-startup-id playerctl -p spotify play-pause
+#bindsym XF86AudioPause exec --no-startup-id playerctl -p spotify pause
+bindsym XF86AudioNext exec --no-startup-id playerctl -p spotify next
+bindsym XF86AudioPrev exec --no-startup-id playerctl -p spotify previous
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -55,7 +62,8 @@ tiling_drag modifier titlebar
 
 # start a terminal
 #bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec kitty
+bindsym $mod+Return exec alacritty
+#bindsym $mod+Return exec kitty
 
 # take screenshot
 bindsym $mod+c exec flameshot gui
@@ -68,6 +76,9 @@ bindsym $mod+x exec thunar
 # kill focused window
 bindsym $mod+Shift+q kill
 
+# Activate shutdown menu
+bindsym $mod+Shift+s exec /home/finnbogi/.config/i3blocks/shutdown_menu
+
 # start dmenu (a program launcher)
 #bindsym $mod+d exec --no-startup-id dmenu_run
 bindsym $mod+d exec "rofi -modi drun,run -show drun -show-icons"
@@ -79,8 +90,8 @@ bindsym $mod+d exec "rofi -modi drun,run -show drun -show-icons"
 
 # change focus
 bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
+#bindsym $mod+k focus down
+#bindsym $mod+l focus up
 bindsym $mod+ae focus right
 
 # alternatively, you can use the cursor keys:
@@ -134,13 +145,13 @@ set $ws1 "1:  Terminal"
 set $ws2 "2:  Brave"
 #set $ws2 "Browser"
 set $ws3 "3:  Code"
-set $ws4 "4"
-set $ws5 "5"
+set $ws4 "4:  Spotify"
+set $ws5 "5:  Obsidian"
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
-set $ws10 "10"
+set $ws10 "10:  Mail"
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -167,9 +178,15 @@ bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
 for_window [class="code-oss"] move to workspace $ws3
+for_window [class="Cursor"] move to workspace $ws3
 for_window [class="Brave-browser"] move to workspace $ws2
 for_window [class="firefox"] move to workspace $ws2
 for_window [class="kitty"] move to workspace $ws1
+for_window [class="Alacritty"] move to workspace $ws1
+for_window [class="Spotify"] move to workspace $ws4
+for_window [class="obsidian"] move to workspace $ws5
+for_window [class="thunderbird"] move to workspace $ws10
+
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -210,16 +227,23 @@ bindsym $mod+r mode "resize"
 bar {
     #font NotoSans Nerd Font 10
     #font pango:Source Code Pro Semibold, FontAwesome 10
-    font pango:Fira Code Semibold, FontAwesome 10
+    #font Fira Code Semibold, FontAwesome 12
+    font pango:Fira Code Semibold, FontAwesome 14
 	position top
 	#status_command i3status -c /home/$USER/.config/i3status/i3status.conf
 	status_command i3blocks -c /home/$USER/.config/i3blocks/i3blocks.conf
         #status_command i3status
 }
 
+#bindsym $mod+l exec i3lock-fancy -p -f Roboto-Mono-Bold
+#bindsym $mod+l exec i3lock -i /home/finnbogi/Nextcloud/Pictures/Wallpapers/backgroundDefault.jpg
+bindsym $mod+l exec lock
+
 exec_always feh --bg-fill /home/finnbogi/Pictures/wallpaper.jpg
 #exec_always picom -f
 exec --no-startup-id picom -c
+exec --no-startup-id redshift
+exec --no-startup-id streamdeck
 
 exec flameshot
 exec nextcloud
@@ -257,4 +281,13 @@ mode "$mode_gaps" {
         bindsym Escape mode "default"
         }
 
+
+bindsym $mod+Shift+m exec outing
+
 bindsym $mod+g mode "$mode_gaps"
+
+gaps inner 10
+gaps outer 5
+
+bindsym $mod+p move workspace to output right
+
