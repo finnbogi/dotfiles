@@ -22,6 +22,7 @@ pacman -Sy playerctl \
            redshift \
            thunar \
            ranger \
+           fastfetch \
            neovim
 
 
