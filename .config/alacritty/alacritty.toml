@@ -37,7 +37,7 @@ TERM = "xterm-256color"
 #normal.family = "MesloLGS Nerd Font Mono"
 normal.family = "FiraCode Nerd Font"
 normal.style = "Regular"
-size = 16.0
+size = 12.0
 
 [font.bold]
 #family = "MesloLGS Nerd Font Mono"
