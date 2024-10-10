@@ -27,3 +27,4 @@ pacman -Sy playerctl \
 
 
 curl -fsSL https://get.jetify.com/devbox | bash
+chown $(id -u):$(id -g) /usr/local/bin/devbox
