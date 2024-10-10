@@ -1,0 +1,18 @@
+project: finnbogi
+providers:
+  google_secretmanager:
+    env:
+      DEFAULT_VENDOR:
+        path: projects/454279703765/secrets/DEFAULT_VENDOR/versions/1
+      DEFAULT_MODEL:
+        path: projects/454279703765/secrets/DEFAULT_MODEL/versions/1
+      ANTHROPIC_API_KEY:
+        path: projects/454279703765/secrets/ANTHROPIC_API_KEY/versions/1
+      OLLAMA_API_URL:
+        path: projects/454279703765/secrets/OLLAMA_API_URL/versions/1
+      OPENAI_API_BASE_URL:
+        path: projects/454279703765/secrets/OPENAI_API_BASE_URL/versions/1
+      OPENAI_API_KEY:
+        path: projects/454279703765/secrets/OPENAI_API_KEY/versions/1
+      YOUTUBE_API_KEY:
+        path: projects/454279703765/secrets/YOUTUBE_API_KEY/versions/1
