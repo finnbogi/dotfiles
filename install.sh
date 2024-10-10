@@ -23,8 +23,7 @@ pacman -Sy playerctl \
            thunar \
            ranger \
            fastfetch \
-           neovim
+           neovim \
+           lazygit
 
-
-curl -fsSL https://get.jetify.com/devbox | bash
-chown $(id -u):$(id -g) /usr/local/bin/devbox
+# curl -fsSL https://get.jetify.com/devbox | bash

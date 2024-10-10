@@ -1,3 +1,5 @@
+curl -fsSL https://get.jetify.com/devbox | bash
+
 # gcloud auth login
 
 # teller env >.config/fabric/.env
