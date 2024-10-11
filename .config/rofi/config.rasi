@@ -1,7 +1,7 @@
 @theme "/dev/null"
 
 * {
-  font:   "Iosevka Nerd Font Medium 18";
+  font:   "Iosevka Nerd Font Medium 22";
 
   bg0     : #1a1b26;
   bg1     : #1f2335;
