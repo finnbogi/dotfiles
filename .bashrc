@@ -91,5 +91,5 @@ git config --global core.editor "nvim"
 
 # source /etc/profile.d/bash_completion.sh
 
-export PATH="$PATH:$(go env GOBIN):$(go env GOPATH)/bin"
+export PATH="$PATH:$HOME/.local/bin:$(go env GOBIN):$(go env GOPATH)/bin"
 
