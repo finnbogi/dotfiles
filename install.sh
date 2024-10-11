@@ -8,6 +8,9 @@ pacman -Sy ttf-firacode-nerd \
            lightdm \
            lightdm-gtk-greeter
 
+systemctl enable lightdm.service
+systemctl start lightdm.service
+
 
 pacman -Sy i3-wm \
            i3status \
