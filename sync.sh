@@ -1,4 +1,4 @@
-curl -fsSL https://get.jetify.com/devbox | bash
+#curl -fsSL https://get.jetify.com/devbox | bash
 
 # gcloud auth login
 
