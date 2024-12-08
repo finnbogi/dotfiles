@@ -9,7 +9,8 @@
         "zoxide@latest",
         "fzf@latest",
         "eza@latest",
-        "thefuck@latest"
+        "thefuck@latest",
+        "go-task@latest"
     ],
     "shell": {
         "init_hook": [],
